@@ -17,12 +17,16 @@ public class LLamada extends Minuto {
     private String codigo;
     private String operador;
     private String cantidadm;
+    private String nacional;
+    private String internacional;
 
-    public LLamada(String codigo, String operador, String cantidadm, String valor,String pago) {
-        super(valor,pago);
+    public LLamada(String codigo, String operador, String cantidadm, String valor,String nacional,String internacional) {
+        super(valor);
         this.codigo = codigo;
         this.operador = operador;
         this.cantidadm = cantidadm;
+        this.nacional = nacional;
+        this.internacional = internacional;
     }
 
     public String getCodigo() {
@@ -49,10 +53,22 @@ public class LLamada extends Minuto {
         this.cantidadm = cantidadm;
     }
 
-    public void guardar(ObjectOutputStream salida,int i) throws IOException {
-        salida.writeObject(this);
+    public String getNacional() {
+        return nacional;
     }
-    
+
+    public void setNacional(String nacional) {
+        this.nacional = nacional;
+    }
+
+    public String getInternacional() {
+        return internacional;
+    }
+
+    public void setInternacional(String internacional) {
+        this.internacional = internacional;
+    }
+
     public void guardar(ObjectOutputStream salida) throws IOException {
         salida.writeObject(this);
     }

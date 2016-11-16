@@ -81,7 +81,8 @@ public class Helper {
             tabla.setValueAt(llamadas.get(i).getOperador(), i, 2);
             tabla.setValueAt(llamadas.get(i).getCantidadm(), i, 3);
             tabla.setValueAt(llamadas.get(i).getValor(), i, 4);
-            tabla.setValueAt(llamadas.get(i).getPago(), i, 5);
+            tabla.setValueAt(llamadas.get(i).getNacional(), i, 5);
+            tabla.setValueAt(llamadas.get(i).getInternacional(), i, 6);
         }
     }
 
@@ -98,7 +99,6 @@ public class Helper {
             tabla.setValueAt(recargas.get(i).getCodop().getCodigo(), i, 1);
             tabla.setValueAt(recargas.get(i).getCodop().getOperador(), i, 2);
             tabla.setValueAt(recargas.get(i).getValor(), i, 3);
-            tabla.setValueAt(recargas.get(i).getPago(), i, 4);
         }
     }
 
@@ -115,7 +115,8 @@ public class Helper {
             tabla.setValueAt(llamadas.get(i).getOperador(), i, 2);
             tabla.setValueAt(llamadas.get(i).getCantidadm(), i, 3);
             tabla.setValueAt(llamadas.get(i).getValor(), i, 4);
-            tabla.setValueAt(llamadas.get(i).getPago(), i, 5);
+            tabla.setValueAt(llamadas.get(i).getNacional(), i, 5);
+            tabla.setValueAt(llamadas.get(i).getInternacional(), i, 6);
         }
     }
 
@@ -196,13 +197,15 @@ public class Helper {
         return null;
     }
 
-    public static LinkedList<LLamada> modificarLlamada(String ruta, String codigo, String operador, String valor, String cminutos) {
+    public static LinkedList<LLamada> modificarLlamada(String ruta, String codigo, String operador, String valor, String cminutos, String nacional,String internacional) {
         LinkedList<LLamada> llamadas = traerDatos(ruta);
         for (int i = 0; i < llamadas.size(); i++) {
             if (llamadas.get(i).getCodigo().equals(codigo)) {
                 llamadas.get(i).setOperador(operador);
                 llamadas.get(i).setCantidadm(cminutos);
                 llamadas.get(i).setValor(valor);
+                llamadas.get(i).setNacional(nacional);
+                llamadas.get(i).setInternacional(internacional);
 
                 return llamadas;
             }

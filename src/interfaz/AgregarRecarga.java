@@ -96,10 +96,6 @@ public class AgregarRecarga extends javax.swing.JDialog {
         txtValor = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         cmbCdg = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        rbEfectivo = new javax.swing.JRadioButton();
-        rbCredito = new javax.swing.JRadioButton();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbBuscador = new javax.swing.JComboBox<>();
@@ -164,11 +160,11 @@ public class AgregarRecarga extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Código", "Operador", "Valor", "Tipo de Pago"
+                "No.", "Código", "Operador", "Valor"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -181,6 +177,10 @@ public class AgregarRecarga extends javax.swing.JDialog {
             }
         });
         jScrollPane4.setViewportView(tblTablaPrincipal);
+        if (tblTablaPrincipal.getColumnModel().getColumnCount() > 0) {
+            tblTablaPrincipal.getColumnModel().getColumn(0).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(0).setPreferredWidth(30);
+        }
 
         jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 470, 250));
 
@@ -207,36 +207,6 @@ public class AgregarRecarga extends javax.swing.JDialog {
 
         cmbCdg.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jPanel10.add(cmbCdg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 180, 30));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel14.setText("Tipo de Pago:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        rbPago.add(rbEfectivo);
-        rbEfectivo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbEfectivo.setText("Efectivo");
-        rbEfectivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbEfectivoMouseClicked(evt);
-            }
-        });
-        jPanel1.add(rbEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 80, 30));
-
-        rbPago.add(rbCredito);
-        rbCredito.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbCredito.setText("Crédito");
-        rbCredito.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbCreditoMouseClicked(evt);
-            }
-        });
-        jPanel1.add(rbCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 30));
-
-        jPanel10.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 300, 50));
 
         jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 200));
 
@@ -360,7 +330,7 @@ public class AgregarRecarga extends javax.swing.JDialog {
     }//GEN-LAST:event_tblTablaPrincipalMouseClicked
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        String auxCdg, codigo, valor,pago;
+        String auxCdg, codigo, valor;
         int indice;
         LLamada cdg;
 
@@ -373,12 +343,11 @@ public class AgregarRecarga extends javax.swing.JDialog {
             auxCdg = cmbCdg.getSelectedItem().toString();
             indice = auxCdg.indexOf("-") - 1;
             codigo = auxCdg.substring(0, indice);
-            pago = rbPago.getSelection().toString();
             cdg = Helper.traerLlamadaCodigo(codigo, rutaL);
 
             try {
 
-                Recarga r = new Recarga(valor, cdg,pago);
+                Recarga r = new Recarga(valor, cdg);
                 r.guardar(salida);
 
             } catch (IOException ex) {
@@ -433,21 +402,6 @@ public class AgregarRecarga extends javax.swing.JDialog {
 
     }//GEN-LAST:event_cmdModificarActionPerformed
 
-    private void rbEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbEfectivoMouseClicked
-        
-        if (rbEfectivo.isSelected() == true) {
-            
-        }
-
-    }//GEN-LAST:event_rbEfectivoMouseClicked
-
-    private void rbCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCreditoMouseClicked
-        if (rbEfectivo.isSelected() == true) {
-            
-        }
-
-    }//GEN-LAST:event_rbCreditoMouseClicked
-
     /**
      * @param args the command line arguments
      */
@@ -500,17 +454,13 @@ public class AgregarRecarga extends javax.swing.JDialog {
     private javax.swing.JButton cmdModificar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JRadioButton rbCredito;
-    private javax.swing.JRadioButton rbEfectivo;
     public static javax.swing.ButtonGroup rbPago;
     private javax.swing.JTable tblTablaPrincipal;
     private javax.swing.JTextField txtFiltro;

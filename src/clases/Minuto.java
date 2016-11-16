@@ -5,19 +5,16 @@
  */
 package clases;
 
-
-
 /**
  *
  * @author Esmeralda
  */
 public class Minuto implements java.io.Serializable {
-    private String valor;
-    private String pago;
 
-    public Minuto(String valor, String pago) {
+    private String valor;
+
+    public Minuto(String valor) {
         this.valor = valor;
-        this.pago = pago;
     }
 
     public String getValor() {
@@ -28,13 +25,4 @@ public class Minuto implements java.io.Serializable {
         this.valor = valor;
     }
 
-    public String getPago() {
-        return pago;
-    }
-
-    public void setPago(String pago) {
-        this.pago = pago;
-    }
-
-   
 }

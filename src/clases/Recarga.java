@@ -16,8 +16,8 @@ public class Recarga extends Minuto{
     
    private LLamada codop;
 
-    public Recarga(String valor, LLamada codop,String pago) {
-        super(valor,pago);
+    public Recarga(String valor, LLamada codop) {
+        super(valor);
         this.codop = codop;
     }
 

@@ -82,7 +82,8 @@ public class Agrega extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        rbPago = new javax.swing.ButtonGroup();
+        rbNacional = new javax.swing.ButtonGroup();
+        rbInternacional = new javax.swing.ButtonGroup();
         jPanel9 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         cmdEliminar2 = new javax.swing.JButton();
@@ -101,10 +102,14 @@ public class Agrega extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        rbEfectivo = new javax.swing.JRadioButton();
-        rbCredito = new javax.swing.JRadioButton();
+        rbInterSi = new javax.swing.JRadioButton();
+        rbInterNo = new javax.swing.JRadioButton();
+        txtInternacional = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        rbNalSi = new javax.swing.JRadioButton();
+        rbNalNo = new javax.swing.JRadioButton();
+        txtNacional = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbBuscador = new javax.swing.JComboBox<>();
@@ -128,7 +133,7 @@ public class Agrega extends javax.swing.JDialog {
                 cmdEliminar2ActionPerformed(evt);
             }
         });
-        jPanel11.add(cmdEliminar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 140, 30));
+        jPanel11.add(cmdEliminar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 140, 30));
 
         cmdCancelar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         cmdCancelar.setText("Cancelar");
@@ -137,7 +142,7 @@ public class Agrega extends javax.swing.JDialog {
                 cmdCancelarActionPerformed(evt);
             }
         });
-        jPanel11.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 30));
+        jPanel11.add(cmdCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 140, 30));
 
         cmdBuscar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         cmdBuscar.setText("Buscar Codigo");
@@ -146,7 +151,7 @@ public class Agrega extends javax.swing.JDialog {
                 cmdBuscarActionPerformed(evt);
             }
         });
-        jPanel11.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 140, 30));
+        jPanel11.add(cmdBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 140, 30));
 
         cmdGuardar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         cmdGuardar.setText("Guardar");
@@ -155,9 +160,9 @@ public class Agrega extends javax.swing.JDialog {
                 cmdGuardarActionPerformed(evt);
             }
         });
-        jPanel11.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 140, 30));
+        jPanel11.add(cmdGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 140, 30));
 
-        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 250));
+        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 180, 210));
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 204));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Llamadas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
@@ -169,12 +174,19 @@ public class Agrega extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Tipo de Pago"
+                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Nacional", "Internacional", "Contestada"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -186,10 +198,14 @@ public class Agrega extends javax.swing.JDialog {
             }
         });
         jScrollPane4.setViewportView(tblTablaPrincipal);
+        if (tblTablaPrincipal.getColumnModel().getColumnCount() > 0) {
+            tblTablaPrincipal.getColumnModel().getColumn(0).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(0).setPreferredWidth(30);
+        }
 
-        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 500, 280));
+        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 310));
 
-        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 520, 320));
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 700, 350));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 204));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos principales:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
@@ -236,37 +252,73 @@ public class Agrega extends javax.swing.JDialog {
         jLabel12.setText("Operador:");
         jPanel10.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel14.setText("Tipo de Pago:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jLabel14.setText("Internacional:");
+        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
-        rbPago.add(rbEfectivo);
-        rbEfectivo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbEfectivo.setText("Efectivo");
-        rbEfectivo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbEfectivoMouseClicked(evt);
+        rbInternacional.add(rbInterSi);
+        rbInterSi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbInterSi.setText("Si");
+        rbInterSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbInterSiActionPerformed(evt);
             }
         });
-        jPanel1.add(rbEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 80, 30));
+        jPanel10.add(rbInterSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 40, 30));
 
-        rbPago.add(rbCredito);
-        rbCredito.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbCredito.setText("Crédito");
-        rbCredito.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbCreditoMouseClicked(evt);
+        rbInternacional.add(rbInterNo);
+        rbInterNo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbInterNo.setText("No");
+        rbInterNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbInterNoActionPerformed(evt);
             }
         });
-        jPanel1.add(rbCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, 30));
+        jPanel10.add(rbInterNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, 30));
 
-        jPanel10.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 300, 50));
+        txtInternacional.setText("No");
+        txtInternacional.setEnabled(false);
+        txtInternacional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInternacionalKeyTyped(evt);
+            }
+        });
+        jPanel10.add(txtInternacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 150, 30));
 
-        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 320, 250));
+        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel15.setText("Nacional:");
+        jPanel10.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+
+        rbNacional.add(rbNalSi);
+        rbNalSi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbNalSi.setText("Si");
+        rbNalSi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbNalSiActionPerformed(evt);
+            }
+        });
+        jPanel10.add(rbNalSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 40, 30));
+
+        rbNacional.add(rbNalNo);
+        rbNalNo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        rbNalNo.setText("No");
+        rbNalNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbNalNoActionPerformed(evt);
+            }
+        });
+        jPanel10.add(rbNalNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, 30));
+
+        txtNacional.setText("No");
+        txtNacional.setEnabled(false);
+        txtNacional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNacionalKeyTyped(evt);
+            }
+        });
+        jPanel10.add(txtNacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 150, 30));
+
+        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 510, 210));
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 204));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
@@ -274,33 +326,35 @@ public class Agrega extends javax.swing.JDialog {
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setText("Buscar por:");
-        jPanel13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         cmbBuscador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cmbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Operador", "Minutos", "Valor" }));
-        jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 110, -1));
+        jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 110, -1));
 
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFiltroKeyTyped(evt);
             }
         });
-        jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 160, 30));
+        jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 160, 30));
 
-        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 510, 50));
+        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 700, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(579, 732));
+        setSize(new java.awt.Dimension(759, 719));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -326,7 +380,9 @@ public class Agrega extends javax.swing.JDialog {
             txtCodigo.setText("");
             txtCMinutos2.setText("");
             txtValor2.setText("");
-            txtCMinutos2.requestFocusInWindow();
+            txtNacional.setText("No");
+            txtInternacional.setText("No");
+            txtCodigo.requestFocusInWindow();
         }
         JButton botonesH[] = {cmdBuscar, cmdCancelar};
         JButton botonesD[] = {cmdEliminar2, cmdGuardar};
@@ -340,6 +396,8 @@ public class Agrega extends javax.swing.JDialog {
         txtCodigo.setText("");
         txtCMinutos2.setText("");
         txtValor2.setText("");
+        txtNacional.setText("No");
+        txtInternacional.setText("No");
         txtCodigo.requestFocusInWindow();
 
         JButton botonesH[] = {cmdBuscar, cmdCancelar};
@@ -361,6 +419,8 @@ public class Agrega extends javax.swing.JDialog {
         txtCodigo.setText(l.getCodigo());
         txtCMinutos2.setText(l.getCantidadm());
         txtValor2.setText(l.getValor());
+        txtNacional.setText(l.getNacional());
+        txtInternacional.setText(l.getInternacional());
 
         aux = 1;
         JButton botonesH[] = {cmdEliminar2, cmdCancelar, cmdGuardar};
@@ -415,6 +475,8 @@ public class Agrega extends javax.swing.JDialog {
                 txtCMinutos2.setText(l.getCantidadm());
                 txtValor2.setText(l.getValor());
                 cmbOperador.setSelectedItem(l.getOperador());
+                txtNacional.setText(l.getNacional());
+                txtInternacional.setText(l.getInternacional());
                 aux = 1;
             } else {
                 txtCMinutos2.requestFocusInWindow();
@@ -438,7 +500,7 @@ public class Agrega extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCodigoKeyTyped
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        String codigo, operador, cantm, valor, pago;
+        String codigo, operador, cantm, valor, nacional, internacional;
 
         if (txtCodigo.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Dijite el codigo de la llamada!", 3);
@@ -455,15 +517,16 @@ public class Agrega extends javax.swing.JDialog {
             codigo = txtCodigo.getText();
             cantm = txtCMinutos2.getText();
             valor = txtValor2.getText();
-            pago = rbPago.getElements().toString();
-            
+            nacional = txtNacional.getText();
+            internacional = txtInternacional.getText();
+
             LinkedList<LLamada> llamadasMod;
             try {
                 if (aux == 0) {
-                    LLamada l = new LLamada(codigo, operador, cantm, valor, pago);
+                    LLamada l = new LLamada(codigo, operador, cantm, valor, nacional, internacional);
                     l.guardar(salida);
                 } else {
-                    llamadasMod = Helper.modificarLlamada(ruta, codigo, operador, valor, cantm);
+                    llamadasMod = Helper.modificarLlamada(ruta, codigo, operador, valor, cantm, nacional, internacional);
                     salida = new ObjectOutputStream(new FileOutputStream(ruta));
                     Helper.volcado(salida, llamadasMod);
                     aux = 0;
@@ -479,7 +542,9 @@ public class Agrega extends javax.swing.JDialog {
             txtCodigo.setText("");
             txtCMinutos2.setText("");
             txtValor2.setText("");
-            txtCMinutos2.requestFocusInWindow();
+            txtNacional.setText("No");
+            txtInternacional.setText("No");
+            txtCodigo.requestFocusInWindow();
 
             JButton botonesH[] = {cmdBuscar, cmdCancelar};
             JButton botonesD[] = {cmdEliminar2, cmdGuardar};
@@ -489,37 +554,37 @@ public class Agrega extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
-    private void rbEfectivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbEfectivoMouseClicked
-        String codigo, operador, cantm, valor, pago;
+    private void txtInternacionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInternacionalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInternacionalKeyTyped
 
-        operador = cmbOperador.getSelectedItem().toString();
-        codigo = txtCodigo.getText();
-        cantm = txtCMinutos2.getText();
-        valor = txtValor2.getText();
-        pago = rbPago.getSelection().toString();
-        
-        if (rbEfectivo.isSelected() == true) {
-            LLamada l = new LLamada(codigo, operador, cantm, valor, pago);
-            l.setPago("Efectivo");
+    private void txtNacionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNacionalKeyTyped
+
+    private void rbNalSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNalSiActionPerformed
+        if (rbNalSi.isSelected() == true) {
+            txtNacional.setEnabled(true);
         }
-        
-    }//GEN-LAST:event_rbEfectivoMouseClicked
+    }//GEN-LAST:event_rbNalSiActionPerformed
 
-    private void rbCreditoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbCreditoMouseClicked
-        String codigo, operador, cantm, valor, pago;
-
-        operador = cmbOperador.getSelectedItem().toString();
-        codigo = txtCodigo.getText();
-        cantm = txtCMinutos2.getText();
-        valor = txtValor2.getText();
-        pago = rbPago.getSelection().toString();
-        
-        if (rbEfectivo.isSelected() == true) {
-            LLamada l = new LLamada(codigo, operador, cantm, valor, pago);
-            l.setPago("Crédito");
+    private void rbNalNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNalNoActionPerformed
+        if (rbNalNo.isSelected() == true) {
+            txtNacional.setEnabled(false);
         }
-        
-    }//GEN-LAST:event_rbCreditoMouseClicked
+    }//GEN-LAST:event_rbNalNoActionPerformed
+
+    private void rbInterSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInterSiActionPerformed
+        if (rbInterSi.isSelected() == true) {
+            txtInternacional.setEnabled(true);
+        }
+    }//GEN-LAST:event_rbInterSiActionPerformed
+
+    private void rbInterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInterNoActionPerformed
+        if (rbInterNo.isSelected() == true) {
+            txtInternacional.setEnabled(false);
+        }
+    }//GEN-LAST:event_rbInterNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -574,22 +639,27 @@ public class Agrega extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JRadioButton rbCredito;
-    private javax.swing.JRadioButton rbEfectivo;
-    public static javax.swing.ButtonGroup rbPago;
+    private javax.swing.JRadioButton rbInterNo;
+    private javax.swing.JRadioButton rbInterSi;
+    private javax.swing.ButtonGroup rbInternacional;
+    public static javax.swing.ButtonGroup rbNacional;
+    private javax.swing.JRadioButton rbNalNo;
+    private javax.swing.JRadioButton rbNalSi;
     private javax.swing.JTable tblTablaPrincipal;
     private javax.swing.JTextField txtCMinutos2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtFiltro;
+    private javax.swing.JTextField txtInternacional;
+    private javax.swing.JTextField txtNacional;
     private javax.swing.JTextField txtValor2;
     // End of variables declaration//GEN-END:variables
 }
