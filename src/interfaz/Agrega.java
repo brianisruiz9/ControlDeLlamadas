@@ -61,7 +61,7 @@ public class Agrega extends javax.swing.JDialog {
         if (cmbBuscador.getSelectedItem() == "Codigo") {
             columnaABuscar = 1;
         }
-        if (cmbBuscador.getSelectedItem().toString() == "Operador") {
+        if (cmbBuscador.getSelectedItem() == "Operador") {
             columnaABuscar = 2;
         }
         if (cmbBuscador.getSelectedItem() == "Minutos") {
@@ -69,6 +69,12 @@ public class Agrega extends javax.swing.JDialog {
         }
         if (cmbBuscador.getSelectedItem() == "Valor") {
             columnaABuscar = 4;
+        }
+        if (cmbBuscador.getSelectedItem() == "Nacional") {
+            columnaABuscar = 5;
+        }
+        if (cmbBuscador.getSelectedItem() == "Internacional") {
+            columnaABuscar = 6;
         }
         trsFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
     }
@@ -114,6 +120,7 @@ public class Agrega extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         cmbBuscador = new javax.swing.JComboBox<>();
         txtFiltro = new javax.swing.JTextField();
+        cbBuscar = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("AGREGAR LLAMADAS");
@@ -174,19 +181,12 @@ public class Agrega extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Nacional", "Internacional", "Contestada"
+                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Nacional", "Internacional"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -329,15 +329,25 @@ public class Agrega extends javax.swing.JDialog {
         jPanel13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         cmbBuscador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cmbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Operador", "Minutos", "Valor" }));
+        cmbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Operador", "Minutos", "Valor", "Nacional", "Internacional" }));
+        cmbBuscador.setEnabled(false);
         jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 110, -1));
 
+        txtFiltro.setEnabled(false);
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFiltroKeyTyped(evt);
             }
         });
         jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 160, 30));
+
+        cbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscarActionPerformed(evt);
+            }
+        });
+        jPanel13.add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 700, 50));
 
@@ -555,11 +565,19 @@ public class Agrega extends javax.swing.JDialog {
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
     private void txtInternacionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInternacionalKeyTyped
-        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtInternacionalKeyTyped
 
     private void txtNacionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNacionalKeyTyped
-        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
     }//GEN-LAST:event_txtNacionalKeyTyped
 
     private void rbNalSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNalSiActionPerformed
@@ -585,6 +603,16 @@ public class Agrega extends javax.swing.JDialog {
             txtInternacional.setEnabled(false);
         }
     }//GEN-LAST:event_rbInterNoActionPerformed
+
+    private void cbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscarActionPerformed
+        if (cbBuscar.isSelected() == true) {
+            cmbBuscador.setEnabled(true);
+            txtFiltro.setEnabled(true);
+        } else {
+            cmbBuscador.setEnabled(false);
+            txtFiltro.setEnabled(false);
+        }
+    }//GEN-LAST:event_cbBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -629,6 +657,7 @@ public class Agrega extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cbBuscar;
     private javax.swing.JComboBox<String> cmbBuscador;
     private javax.swing.JComboBox<String> cmbOperador;
     private javax.swing.JButton cmdBuscar;

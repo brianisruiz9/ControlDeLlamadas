@@ -100,6 +100,7 @@ public class AgregarRecarga extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         cmbBuscador = new javax.swing.JComboBox<>();
         txtFiltro = new javax.swing.JTextField();
+        cbBuscar = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("AGREGAR RECARGAS");
@@ -216,18 +217,28 @@ public class AgregarRecarga extends javax.swing.JDialog {
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setText("Buscar por:");
-        jPanel13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        jPanel13.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         cmbBuscador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cmbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Operador", "Valor" }));
+        cmbBuscador.setEnabled(false);
         jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 110, -1));
 
+        txtFiltro.setEnabled(false);
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFiltroKeyTyped(evt);
             }
         });
         jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 160, 30));
+
+        cbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbBuscarActionPerformed(evt);
+            }
+        });
+        jPanel13.add(cbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 500, 50));
 
@@ -402,6 +413,16 @@ public class AgregarRecarga extends javax.swing.JDialog {
 
     }//GEN-LAST:event_cmdModificarActionPerformed
 
+    private void cbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscarActionPerformed
+        if (cbBuscar.isSelected() == true) {
+            cmbBuscador.setEnabled(true);
+            txtFiltro.setEnabled(true);
+        } else {
+            cmbBuscador.setEnabled(false);
+            txtFiltro.setEnabled(false);
+        }
+    }//GEN-LAST:event_cbBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -446,6 +467,7 @@ public class AgregarRecarga extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cbBuscar;
     private javax.swing.JComboBox<String> cmbBuscador;
     private javax.swing.JComboBox<String> cmbCdg;
     private javax.swing.JButton cmdCancelar;

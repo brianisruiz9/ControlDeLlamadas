@@ -196,7 +196,7 @@
                       <Font name="Century Gothic" size="12" style="1"/>
                     </Property>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="0">
+                      <Table columnCount="7" rowCount="0">
                         <Column editable="false" title="No." type="java.lang.Object"/>
                         <Column editable="false" title="Codigo" type="java.lang.Object"/>
                         <Column editable="false" title="Operador" type="java.lang.Object"/>
@@ -204,7 +204,6 @@
                         <Column editable="false" title="Valor" type="java.lang.Object"/>
                         <Column editable="false" title="Nacional" type="java.lang.Object"/>
                         <Column editable="false" title="Internacional" type="java.lang.Object"/>
-                        <Column editable="true" title="Contestada" type="java.lang.Boolean"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -563,13 +562,16 @@
                   <Font name="Tahoma" size="13" style="1"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="6">
                     <StringItem index="0" value="Codigo"/>
                     <StringItem index="1" value="Operador"/>
                     <StringItem index="2" value="Minutos"/>
                     <StringItem index="3" value="Valor"/>
+                    <StringItem index="4" value="Nacional"/>
+                    <StringItem index="5" value="Internacional"/>
                   </StringArray>
                 </Property>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -581,12 +583,30 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFiltro">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtFiltroKeyTyped"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="340" y="10" width="160" height="30"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="cbBuscar">
+              <Properties>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Cursor de Mano"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbBuscarActionPerformed"/>
+              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="90" y="10" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
