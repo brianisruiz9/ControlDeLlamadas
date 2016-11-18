@@ -37,7 +37,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        cmbOperador = new javax.swing.JComboBox<>();
+        cmbOperador = new javax.swing.JComboBox<String>();
         jPanel11 = new javax.swing.JPanel();
         cmdListar = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -54,7 +54,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos principales:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos principales:", 0, 0, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -62,7 +62,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel10.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         cmbOperador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cmbOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tigo", "Claro", "Movistar", "Avantel", "Virgin", "Fijo Nacional", "Internacional" }));
+        cmbOperador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tigo", "Claro", "Movistar", "Avantel", "Virgin", "Fijo Nacional", "Internacional" }));
         cmbOperador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbOperador.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -79,7 +79,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 300, 80));
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones\n", 0, 0, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmdListar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -95,7 +95,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 170, 80));
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 153));
-        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Llamadas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
+        jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Llamadas:", 0, 0, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblTablaPrincipal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -122,7 +122,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
 
         jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 700, 360));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Esmeralda\\Documents\\NetBeansProjects\\ControlDeLlamadas-master\\src\\imagenes\\420854_1108_1.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("H:\\ControlDeLlamadas-master\\src\\imagenes\\420854_1108_1.jpg")); // NOI18N
         jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

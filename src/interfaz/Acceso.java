@@ -88,8 +88,8 @@ public class Acceso extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 270, 160));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Esmeralda\\Documents\\NetBeansProjects\\ControlDeLlamadas-master\\src\\imagenes\\atencion-al-cliente-0800.jpg")); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
+        jLabel5.setIcon(new javax.swing.ImageIcon("H:\\ControlDeLlamadas-master\\src\\imagenes\\atencion-al-cliente-0800.jpg")); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 630, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +102,7 @@ public class Acceso extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(648, 465));
+        setSize(new java.awt.Dimension(648, 461));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

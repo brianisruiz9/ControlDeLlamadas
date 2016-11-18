@@ -251,7 +251,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Esmeralda\Documents\NetBeansProjects\ControlDeLlamadas-master\src\imagenes\420854_1108_1.jpg"/>
+              <Image iconType="2" name="H:\ControlDeLlamadas-master\src\imagenes\420854_1108_1.jpg"/>
             </Property>
           </Properties>
           <Constraints>
