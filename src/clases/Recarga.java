@@ -12,13 +12,15 @@ import java.io.ObjectOutputStream;
  *
  * @author Esmeralda
  */
-public class Recarga extends Minuto{
-    
-   private LLamada codop;
+public class Recarga extends Minuto {
 
-    public Recarga(String valor, LLamada codop) {
+    private LLamada codop;
+    private String pago;
+
+    public Recarga(String valor, LLamada codop, String pago) {
         super(valor);
         this.codop = codop;
+        this.pago = pago;
     }
 
     public LLamada getCodop() {
@@ -28,7 +30,15 @@ public class Recarga extends Minuto{
     public void setCodop(LLamada codop) {
         this.codop = codop;
     }
-    
+
+    public String getPago() {
+        return pago;
+    }
+
+    public void setPago(String pago) {
+        this.pago = pago;
+    }
+
     public void guardar(ObjectOutputStream salida) throws IOException {
         salida.writeObject(this);
     }

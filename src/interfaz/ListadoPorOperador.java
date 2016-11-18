@@ -43,6 +43,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel12 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblTablaPrincipal = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -61,7 +62,8 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         jPanel10.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         cmbOperador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        cmbOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tigo", "Claro", "Movistar", "Avantel", "Virgin", "Nacional", "Internacional" }));
+        cmbOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tigo", "Claro", "Movistar", "Avantel", "Virgin", "Fijo Nacional", "Internacional" }));
+        cmbOperador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbOperador.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbOperadorItemStateChanged(evt);
@@ -72,15 +74,17 @@ public class ListadoPorOperador extends javax.swing.JDialog {
                 cmbOperadorActionPerformed(evt);
             }
         });
-        jPanel10.add(cmbOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 110, -1));
+        jPanel10.add(cmbOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 130, -1));
 
-        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 300, 80));
+        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 300, 80));
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 204));
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cmdListar.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cmdListar.setText("Listar");
+        cmdListar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmdListar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdListarActionPerformed(evt);
@@ -88,9 +92,9 @@ public class ListadoPorOperador extends javax.swing.JDialog {
         });
         jPanel11.add(cmdListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 90, 30));
 
-        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 170, 80));
+        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, 170, 80));
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel12.setBackground(new java.awt.Color(255, 255, 153));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Llamadas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,37 +104,47 @@ public class ListadoPorOperador extends javax.swing.JDialog {
 
             },
             new String [] {
-                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor"
+                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Nacional", "Internacional"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblTablaPrincipal.setGridColor(new java.awt.Color(102, 102, 102));
         jScrollPane4.setViewportView(tblTablaPrincipal);
 
-        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 490, 240));
+        jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 310));
 
-        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 510, 280));
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 700, 360));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 430));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Esmeralda\\Documents\\NetBeansProjects\\ControlDeLlamadas-master\\src\\imagenes\\420854_1108_1.jpg")); // NOI18N
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(588, 475));
+        setSize(new java.awt.Dimension(746, 555));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,6 +207,7 @@ public class ListadoPorOperador extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbOperador;
     private javax.swing.JButton cmdListar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;

@@ -99,6 +99,7 @@ public class Helper {
             tabla.setValueAt(recargas.get(i).getCodop().getCodigo(), i, 1);
             tabla.setValueAt(recargas.get(i).getCodop().getOperador(), i, 2);
             tabla.setValueAt(recargas.get(i).getValor(), i, 3);
+            tabla.setValueAt(recargas.get(i).getPago(), i, 4);
         }
     }
 
@@ -214,12 +215,13 @@ public class Helper {
         return null;
     }
 
-    public static LinkedList<Recarga> modificarRecarga(String ruta, String valor, LLamada codigo) {
+    public static LinkedList<Recarga> modificarRecarga(String ruta, String valor, LLamada codigo,String pago) {
         LinkedList<Recarga> recargas = traerDatos(ruta);
         for (int i = 0; i < recargas.size(); i++) {
             if (recargas.get(i).getCodop().equals(codigo)) {
                 recargas.get(i).setValor(valor);
-
+                recargas.get(i).setPago(pago);
+                
                 return recargas;
             }
 

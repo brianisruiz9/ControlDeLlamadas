@@ -30,23 +30,33 @@ public class Acceso extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cmdIngresar = new javax.swing.JButton();
-        txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        cmdSalir = new javax.swing.JButton();
+        cmdIngresar = new javax.swing.JButton();
         txtContra = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        cmdSalir = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel1.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Usuario:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel2.setText("Contraseña:");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         cmdIngresar.setBackground(new java.awt.Color(255, 255, 204));
         cmdIngresar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -57,15 +67,13 @@ public class Acceso extends javax.swing.JFrame {
                 cmdIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 110, 40));
+        jPanel3.add(cmdIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 110, 40));
+
+        txtContra.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel3.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 130, 30));
 
         txtUsuario.setBackground(new java.awt.Color(255, 204, 153));
-        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 130, 30));
-
-        jLabel2.setFont(new java.awt.Font("Microsoft Tai Le", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel2.setText("Contraseña:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, -1));
+        jPanel3.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 130, 30));
 
         cmdSalir.setBackground(new java.awt.Color(255, 255, 204));
         cmdSalir.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -76,26 +84,25 @@ public class Acceso extends javax.swing.JFrame {
                 cmdSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 90, 40));
+        jPanel3.add(cmdSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 90, 40));
 
-        txtContra.setBackground(new java.awt.Color(255, 204, 153));
-        jPanel1.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 130, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 270, 160));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/telefono.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 290, 340));
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Esmeralda\\Documents\\NetBeansProjects\\ControlDeLlamadas-master\\src\\imagenes\\atencion-al-cliente-0800.jpg")); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 420));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(650, 523));
+        setSize(new java.awt.Dimension(648, 465));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,8 +173,9 @@ public class Acceso extends javax.swing.JFrame {
     private javax.swing.JButton cmdSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

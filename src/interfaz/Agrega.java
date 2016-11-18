@@ -40,6 +40,7 @@ public class Agrega extends javax.swing.JDialog {
     public Agrega(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+
         JButton botonesH[] = {cmdBuscar, cmdCancelar};
         JButton botonesD[] = {cmdEliminar2, cmdGuardar};
 
@@ -108,14 +109,10 @@ public class Agrega extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        rbInterSi = new javax.swing.JRadioButton();
-        rbInterNo = new javax.swing.JRadioButton();
         txtInternacional = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        rbNalSi = new javax.swing.JRadioButton();
-        rbNalNo = new javax.swing.JRadioButton();
         txtNacional = new javax.swing.JTextField();
+        cbNacional = new javax.swing.JCheckBox();
+        cbInternal = new javax.swing.JCheckBox();
         jPanel13 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbBuscador = new javax.swing.JComboBox<>();
@@ -192,6 +189,7 @@ public class Agrega extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tblTablaPrincipal.setGridColor(new java.awt.Color(102, 102, 102));
         tblTablaPrincipal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblTablaPrincipalMouseClicked(evt);
@@ -200,7 +198,20 @@ public class Agrega extends javax.swing.JDialog {
         jScrollPane4.setViewportView(tblTablaPrincipal);
         if (tblTablaPrincipal.getColumnModel().getColumnCount() > 0) {
             tblTablaPrincipal.getColumnModel().getColumn(0).setResizable(false);
-            tblTablaPrincipal.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tblTablaPrincipal.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tblTablaPrincipal.getColumnModel().getColumn(0).setHeaderValue("No.");
+            tblTablaPrincipal.getColumnModel().getColumn(1).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(1).setHeaderValue("Codigo");
+            tblTablaPrincipal.getColumnModel().getColumn(2).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(2).setHeaderValue("Operador");
+            tblTablaPrincipal.getColumnModel().getColumn(3).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(3).setHeaderValue("Cantidad de minutos");
+            tblTablaPrincipal.getColumnModel().getColumn(4).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(4).setHeaderValue("Valor");
+            tblTablaPrincipal.getColumnModel().getColumn(5).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(5).setHeaderValue("Nacional");
+            tblTablaPrincipal.getColumnModel().getColumn(6).setResizable(false);
+            tblTablaPrincipal.getColumnModel().getColumn(6).setHeaderValue("Internacional");
         }
 
         jPanel12.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 310));
@@ -219,6 +230,7 @@ public class Agrega extends javax.swing.JDialog {
         jLabel9.setText("Código:");
         jPanel10.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, 20));
 
+        txtCMinutos2.setEnabled(false);
         txtCMinutos2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCMinutos2KeyTyped(evt);
@@ -226,6 +238,7 @@ public class Agrega extends javax.swing.JDialog {
         });
         jPanel10.add(txtCMinutos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 80, 30));
 
+        txtValor2.setEnabled(false);
         txtValor2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtValor2KeyTyped(evt);
@@ -235,6 +248,7 @@ public class Agrega extends javax.swing.JDialog {
 
         cmbOperador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cmbOperador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tigo", "Claro", "Movistar", "Avantel", "Virgin", "Fijo Nacional", "Internacional" }));
+        cmbOperador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel10.add(cmbOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 130, 30));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -252,30 +266,6 @@ public class Agrega extends javax.swing.JDialog {
         jLabel12.setText("Operador:");
         jPanel10.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel14.setText("Internacional:");
-        jPanel10.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
-
-        rbInternacional.add(rbInterSi);
-        rbInterSi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbInterSi.setText("Si");
-        rbInterSi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbInterSiActionPerformed(evt);
-            }
-        });
-        jPanel10.add(rbInterSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 40, 30));
-
-        rbInternacional.add(rbInterNo);
-        rbInterNo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbInterNo.setText("No");
-        rbInterNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbInterNoActionPerformed(evt);
-            }
-        });
-        jPanel10.add(rbInterNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, 30));
-
         txtInternacional.setText("No");
         txtInternacional.setEnabled(false);
         txtInternacional.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -285,30 +275,6 @@ public class Agrega extends javax.swing.JDialog {
         });
         jPanel10.add(txtInternacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 150, 30));
 
-        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel15.setText("Nacional:");
-        jPanel10.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
-
-        rbNacional.add(rbNalSi);
-        rbNalSi.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbNalSi.setText("Si");
-        rbNalSi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbNalSiActionPerformed(evt);
-            }
-        });
-        jPanel10.add(rbNalSi, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 40, 30));
-
-        rbNacional.add(rbNalNo);
-        rbNalNo.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        rbNalNo.setText("No");
-        rbNalNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbNalNoActionPerformed(evt);
-            }
-        });
-        jPanel10.add(rbNalNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, 30));
-
         txtNacional.setText("No");
         txtNacional.setEnabled(false);
         txtNacional.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -317,6 +283,26 @@ public class Agrega extends javax.swing.JDialog {
             }
         });
         jPanel10.add(txtNacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 150, 30));
+
+        cbNacional.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        cbNacional.setText("Nacional:");
+        cbNacional.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbNacional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNacionalActionPerformed(evt);
+            }
+        });
+        jPanel10.add(cbNacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, -1, -1));
+
+        cbInternal.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        cbInternal.setText("Internacional:");
+        cbInternal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cbInternal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbInternalActionPerformed(evt);
+            }
+        });
+        jPanel10.add(cbInternal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
 
         jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 510, 210));
 
@@ -330,8 +316,9 @@ public class Agrega extends javax.swing.JDialog {
 
         cmbBuscador.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         cmbBuscador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Operador", "Minutos", "Valor", "Nacional", "Internacional" }));
+        cmbBuscador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmbBuscador.setEnabled(false);
-        jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 110, -1));
+        jPanel13.add(cmbBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 130, -1));
 
         txtFiltro.setEnabled(false);
         txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -339,7 +326,7 @@ public class Agrega extends javax.swing.JDialog {
                 txtFiltroKeyTyped(evt);
             }
         });
-        jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 160, 30));
+        jPanel13.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 160, 30));
 
         cbBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -387,12 +374,16 @@ public class Agrega extends javax.swing.JDialog {
             Helper.llenarTabla(tblTablaPrincipal, ruta);
 
             cmbOperador.setSelectedIndex(0);
+            cmbOperador.setSelectedIndex(0);
             txtCodigo.setText("");
             txtCMinutos2.setText("");
             txtValor2.setText("");
             txtNacional.setText("No");
             txtInternacional.setText("No");
             txtCodigo.requestFocusInWindow();
+
+            txtCMinutos2.setEnabled(false);
+            txtValor2.setEnabled(false);
         }
         JButton botonesH[] = {cmdBuscar, cmdCancelar};
         JButton botonesD[] = {cmdEliminar2, cmdGuardar};
@@ -403,12 +394,18 @@ public class Agrega extends javax.swing.JDialog {
 
     private void cmdCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCancelarActionPerformed
         cmbOperador.setSelectedIndex(0);
+        cmbOperador.setSelectedIndex(0);
         txtCodigo.setText("");
         txtCMinutos2.setText("");
         txtValor2.setText("");
         txtNacional.setText("No");
         txtInternacional.setText("No");
         txtCodigo.requestFocusInWindow();
+
+        txtCMinutos2.setEnabled(false);
+        txtValor2.setEnabled(false);
+        txtNacional.setEnabled(false);
+        txtInternacional.setEnabled(false);
 
         JButton botonesH[] = {cmdBuscar, cmdCancelar};
         JButton botonesD[] = {cmdEliminar2, cmdGuardar};
@@ -433,6 +430,10 @@ public class Agrega extends javax.swing.JDialog {
         txtInternacional.setText(l.getInternacional());
 
         aux = 1;
+
+        txtCMinutos2.setEnabled(true);
+        txtValor2.setEnabled(true);
+
         JButton botonesH[] = {cmdEliminar2, cmdCancelar, cmdGuardar};
         JButton botonesD[] = {cmdBuscar};
 
@@ -492,6 +493,8 @@ public class Agrega extends javax.swing.JDialog {
                 txtCMinutos2.requestFocusInWindow();
                 aux = 0;
             }
+            txtCMinutos2.setEnabled(true);
+            txtValor2.setEnabled(true);
 
             JButton botonesH[] = {cmdCancelar, cmdGuardar};
             JButton botonesD[] = {cmdBuscar, cmdEliminar2};
@@ -521,6 +524,12 @@ public class Agrega extends javax.swing.JDialog {
         } else if (txtValor2.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Dijite el valor de la llamada!", 3);
             txtValor2.requestFocusInWindow();
+        } else if (txtNacional.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "¡Dijite la llamada Fija Nacional!", 3);
+            txtNacional.requestFocusInWindow();
+        } else if (txtInternacional.getText().trim().isEmpty()) {
+            Helper.mensaje(this, "¡Dijite la llamada Internacional!", 3);
+            txtInternacional.requestFocusInWindow();
         } else {
 
             operador = cmbOperador.getSelectedItem().toString();
@@ -556,6 +565,11 @@ public class Agrega extends javax.swing.JDialog {
             txtInternacional.setText("No");
             txtCodigo.requestFocusInWindow();
 
+            txtCMinutos2.setEnabled(false);
+            txtValor2.setEnabled(false);
+            txtNacional.setEnabled(false);
+            txtInternacional.setEnabled(false);
+
             JButton botonesH[] = {cmdBuscar, cmdCancelar};
             JButton botonesD[] = {cmdEliminar2, cmdGuardar};
 
@@ -580,30 +594,6 @@ public class Agrega extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtNacionalKeyTyped
 
-    private void rbNalSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNalSiActionPerformed
-        if (rbNalSi.isSelected() == true) {
-            txtNacional.setEnabled(true);
-        }
-    }//GEN-LAST:event_rbNalSiActionPerformed
-
-    private void rbNalNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNalNoActionPerformed
-        if (rbNalNo.isSelected() == true) {
-            txtNacional.setEnabled(false);
-        }
-    }//GEN-LAST:event_rbNalNoActionPerformed
-
-    private void rbInterSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInterSiActionPerformed
-        if (rbInterSi.isSelected() == true) {
-            txtInternacional.setEnabled(true);
-        }
-    }//GEN-LAST:event_rbInterSiActionPerformed
-
-    private void rbInterNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInterNoActionPerformed
-        if (rbInterNo.isSelected() == true) {
-            txtInternacional.setEnabled(false);
-        }
-    }//GEN-LAST:event_rbInterNoActionPerformed
-
     private void cbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbBuscarActionPerformed
         if (cbBuscar.isSelected() == true) {
             cmbBuscador.setEnabled(true);
@@ -613,6 +603,26 @@ public class Agrega extends javax.swing.JDialog {
             txtFiltro.setEnabled(false);
         }
     }//GEN-LAST:event_cbBuscarActionPerformed
+
+    private void cbNacionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNacionalActionPerformed
+        if (cbNacional.isSelected() == true) {
+            txtNacional.setEnabled(true);
+            txtNacional.setText("");
+        } else {
+            txtNacional.setEnabled(false);
+            txtNacional.setText("No");
+        }
+    }//GEN-LAST:event_cbNacionalActionPerformed
+
+    private void cbInternalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbInternalActionPerformed
+        if (cbInternal.isSelected() == true) {
+            txtInternacional.setEnabled(true);
+            txtInternacional.setText("");
+        } else {
+            txtInternacional.setEnabled(false);
+            txtInternacional.setText("No");
+        }
+    }//GEN-LAST:event_cbInternalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -658,6 +668,8 @@ public class Agrega extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox cbBuscar;
+    private javax.swing.JCheckBox cbInternal;
+    private javax.swing.JCheckBox cbNacional;
     private javax.swing.JComboBox<String> cmbBuscador;
     private javax.swing.JComboBox<String> cmbOperador;
     private javax.swing.JButton cmdBuscar;
@@ -667,8 +679,6 @@ public class Agrega extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
@@ -677,12 +687,8 @@ public class Agrega extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JRadioButton rbInterNo;
-    private javax.swing.JRadioButton rbInterSi;
     private javax.swing.ButtonGroup rbInternacional;
     public static javax.swing.ButtonGroup rbNacional;
-    private javax.swing.JRadioButton rbNalNo;
-    private javax.swing.JRadioButton rbNalSi;
     private javax.swing.JTable tblTablaPrincipal;
     private javax.swing.JTextField txtCMinutos2;
     private javax.swing.JTextField txtCodigo;

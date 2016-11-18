@@ -21,7 +21,7 @@ public class ListadoDeLlamadas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
          ruta = "src/datos/llamadas.txt";
-        Helper.llenarTabla(tblLLamadasRealizadas, ruta);
+        Helper.llenarTabla(tblTablaPrincipal, ruta);
     }
 
     /**
@@ -34,10 +34,12 @@ public class ListadoDeLlamadas extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tblLLamadasRealizadas = new javax.swing.JTable();
+        tblTablaPrincipal = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -45,50 +47,63 @@ public class ListadoDeLlamadas extends javax.swing.JDialog {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 4));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel1.setText("LISTADO DE LLAMADAS REALIZADAS");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 30));
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Llamadas:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 14))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblLLamadasRealizadas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        tblLLamadasRealizadas.setModel(new javax.swing.table.DefaultTableModel(
+        tblTablaPrincipal.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        tblTablaPrincipal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor"
+                "No.", "Codigo", "Operador", "Cantidad de minutos", "Valor", "Nacional", "Internacional"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tblLLamadasRealizadas);
+        tblTablaPrincipal.setGridColor(new java.awt.Color(102, 102, 102));
+        jScrollPane4.setViewportView(tblTablaPrincipal);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 520, 320));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 680, 310));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 540, 360));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 700, 360));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 102));
+        jLabel1.setText("LISTADO DE LLAMADAS REALIZADAS");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 30));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 430, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Esmeralda\\Documents\\NetBeansProjects\\ControlDeLlamadas-master\\src\\imagenes\\420854_1108_1.jpg")); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(606, 509));
+        setSize(new java.awt.Dimension(737, 578));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,9 +151,11 @@ public class ListadoDeLlamadas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable tblLLamadasRealizadas;
+    private javax.swing.JTable tblTablaPrincipal;
     // End of variables declaration//GEN-END:variables
 }
